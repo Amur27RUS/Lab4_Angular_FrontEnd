@@ -1,0 +1,15 @@
+<!--ШАПКА-->
+<div class="header container">
+  <span class="left">Group P3214</span>
+  <span class="center" id="myname">{{currentUser.username}} <button class="submit-button"
+                                                                    style="height: 30px; width: 70px; font-size: 15px"
+                                                                    (click)="logOut()">LogOut</button></span>
+  <span class="right">Var: 45792</span>
+</div>
+
+<div class="container" style="width: 900px;box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2);
+">
+
+  <app-check-points></app-check-points>
+  <app-history></app-history>
+</div>

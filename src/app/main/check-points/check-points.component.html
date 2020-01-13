@@ -1,0 +1,77 @@
+<div style="display: inline">
+  <form id="formId" class="container" name="form-check"
+        (ngSubmit)="addPoint()" #f="ngForm" novalidate>
+
+
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+
+    <!--X INPUT-->
+    <div class="form-group" style="width: 150px; display: inline-block" [ngClass]="{ 'has-error': f.submitted}">
+      <label>X</label><br>
+
+      <button id="x" class="submit-button" type="button" style="height: 40px; width: 40px" #x1 (click)="setX(x1.value)"
+              value="-2">-2</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x2 (click)="setX(x2.value)"
+              value="-1.5">-1.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x3 (click)="setX(x3.value)"
+              value="-1">-1</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x4 (click)="setX(x4.value)"
+              value="-0.5">-0.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x5 (click)="setX(x5.value)"
+              value="0">0</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x6 (click)="setX(x6.value)"
+              value="0.5">0.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x7 (click)="setX(x7.value)"
+              value="1">1</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x8 (click)="setX(x8.value)"
+              value="1.5">1.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #x9 (click)="setX(x9.value)"
+              value="2">2</button>
+
+    </div>
+
+    <!--Y INPUT-->
+    <div class="form-group" style="width: 100px; display: inline-block" [ngClass]="{ 'has-error': f.submitted}">
+      <label for="y">Y</label>
+      <input type="text" class="form-control" id="y" name="password" [(ngModel)]="point.y"
+             #y="ngModel" required/>
+    </div>
+
+    <!--R INPUT-->
+    <div class="form-group" style="width: 150px; display: inline-block" [ngClass]="{ 'has-error': f.submitted }">
+      <label>R</label><br>
+
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r1 (click)="setR(r1.value);
+       drawGraphic($event.target.value)" value="1">1</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r2 (click)="setR(r2.value);
+       drawGraphic($event.target.value)" value="1.5">1.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r3 (click)="setR(r3.value);
+       drawGraphic($event.target.value)" value="2">2</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r4 (click)="setR(r4.value);
+       drawGraphic($event.target.value)" value="2.5">2.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r5 (click)="setR(r5.value);
+       drawGraphic($event.target.value)" value="3">3</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r6 (click)="setR(r6.value);
+       drawGraphic($event.target.value)" value="3.5">3.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r7 (click)="setR(r7.value);
+       drawGraphic($event.target.value)" value="4">4</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r8 (click)="setR(r8.value);
+       drawGraphic($event.target.value)" value="4.5">4.5</button>
+      <button class="submit-button" type="button" style="height: 40px; width: 40px" #r9 (click)="setR(r9.value);
+       drawGraphic($event.target.value)" value="5">5</button>
+    </div>
+    <br>
+    <button class="submit-button btn-signin" type="submit">Check</button>
+  </form>
+</div>
+
+<hr style="size: 5px; color: #4bb6a7;
+  box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2), 3px 3px 0px #4bb6a7;">
+<!--<div class="{{isDesktopDisplay()?'':'flex-g-center'}}">-->
+  <canvas style="background-color: white;
+  box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2), 3px 3px 0px #4bb6a7;
+" #canvas class="block" width="300" height="300"
+          (click)="addPointFromCanvas($event)">
+  </canvas>
+<!--</div>-->

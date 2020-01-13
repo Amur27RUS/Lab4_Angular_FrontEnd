@@ -1,0 +1,57 @@
+<!--ШАПКА-->
+<div class="header container">
+  <span class="left">Group P3214</span>
+  <span class="center" id="myname">Web_Lab4 (Klyuev)</span>
+  <span class="right">Var: 45792</span>
+</div>
+
+<div class="main container" style="height: 445px; width: 400px; align-items: center;
+box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2);">
+
+    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+
+      <div class="alert alert-warning" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+      <!--Email INPUT-->
+      <div class="form-group container" style="width: 300px; margin-top: -14px" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <label style="margin-left: -200px;" for="username">Username</label>
+        <input type="text" style="size: 30px" class="form-control" name="username" id="username" [(ngModel)]="user.username" #username="ngModel" required />
+        <div *ngIf="f.submitted && !username.valid" class="help-block">
+
+          <div *ngIf="username.errors.required" style="color: red; font-size: 15px">
+            Enter an email!
+          </div>
+          <div *ngIf="username.errors.pattern" style="color: red; font-size: 15px">
+            Enter a valid email!
+          </div>
+
+        </div>
+      </div>
+
+      <!--Password INPUT-->
+      <div class="form-group container" style="width: 300px; margin-top: -20px" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label style="margin-left: -200px;" for="password">Password</label>
+        <input type="password" style="size: 30px" class="form-control" name="password" id="password"[(ngModel)]="user.password" #password="ngModel" required minlength="4" />
+        <div *ngIf="f.submitted && !password.valid" class="help-block">
+
+          <div *ngIf="password.errors.required" style="color: red; font-size: 15px">
+            Enter a password!
+          </div>
+          <div *ngIf="password.errors.minlength" style="color: red; font-size: 15px">
+            Minimum 4 chars long!
+          </div>
+
+        </div>
+      </div>
+
+      <button class="submit-button btn-signin" type="submit" style="width: 200px">Create an account</button>
+      <br>
+      <a [routerLink]="['/auth/login']" class="btn btn-link">Go Back</a>
+    </form>
+
+</div>
+
+
+
+
+

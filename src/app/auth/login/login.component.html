@@ -1,0 +1,42 @@
+<!--ШАПКА-->
+<div class="header container ">
+  <span class="left">Group P3214</span>
+  <span class="center" id="myname">Web_Lab4 (Klyuev)</span>
+  <span class="right">Var: 45792</span>
+</div>
+
+<div class="main container" style="height: 445px; width: 400px; align-items: center;box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2);
+">
+
+    <p id="profile-name" class="profile-name-card"></p>
+
+    <form name="form-signin" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+
+
+      <div class="alert alert-warning" style="align-items: center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
+
+      <!--Username INPUT-->
+      <div class="form-group container" style="width: 300px; margin-top: -30px" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <label style="margin-left: -200px;" for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username"
+               [(ngModel)]="user.username" #username="ngModel" required/>
+        <div *ngIf="f.submitted && !username.valid" class="help-block" style="color: red; font-size: 15px">Enter a valid email!</div>
+      </div>
+
+      <!--Password INPUT-->
+      <div class="form-group container" style="width: 300px; margin-top: -20px" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label style="margin-left: -200px;" for="password">Password</label>
+        <input type="password" style="size: 30px" class="form-control" id="password" name="password" [(ngModel)]="user.password"
+               #password="ngModel" required/>
+        <div *ngIf="f.submitted && !password.valid" class="help-block" style="color: red; font-size: 15px">Enter a password!</div>
+      </div>
+
+      <!--SUBMIT BUTTON-->
+      <button class="submit-button" type="submit">Sign in</button>
+
+
+    </form>
+      <!--Link to a register page-->
+    <a [routerLink]="['/auth/register']" class="btn btn-link">Create new Account!</a>
+
+</div>
